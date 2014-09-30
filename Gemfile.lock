@@ -1,0 +1,22 @@
+PATH
+  remote: .
+  specs:
+    factor-connector-timer (0.0.1)
+      factor-connector-api (~> 0.0.1)
+      rufus-scheduler (~> 3.0.9)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    factor-connector-api (0.0.1)
+    rufus-scheduler (3.0.9)
+      tzinfo
+    thread_safe (0.3.4)
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  factor-connector-timer!
