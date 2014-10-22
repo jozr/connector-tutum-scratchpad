@@ -2,17 +2,22 @@
 $LOAD_PATH.push File.expand_path('../lib', __FILE__)
 
 Gem::Specification.new do |s|
-  s.name          = 'factor-connector-timer'
+  s.name          = 'factor-connector-tutum'
   s.version       = '0.0.1'
   s.platform      = Gem::Platform::RUBY
-  s.authors       = ['Maciej Skierkowski']
-  s.email         = ['maciej@factor.io']
+  s.authors       = ['Josie Wright']
+  s.email         = ['jozwright@gmail.com']
   s.homepage      = 'https://factor.io'
-  s.summary       = 'Timer Factor.io Connector'
-  s.files         = ['lib/factor/connector/timer.rb']
-  
+  s.summary       = 'Tutum Factor.io Connector'
+  s.files         = ['lib/factor/connector/tutum.rb']
+
   s.require_paths = ['lib']
 
-  s.add_runtime_dependency 'rufus-scheduler', '~> 3.0.9'
-  s.add_runtime_dependency 'factor-connector-api', '~> 0.0.1'
+  s.add_runtime_dependency 'factor-connector-api', '~> 0.0.3'
+  s.add_runtime_dependency 'tutum', '~> 0.1.1'
+
+  s.add_development_dependency 'codeclimate-test-reporter', '~> 0.4.1'
+  s.add_development_dependency 'rspec', '~> 3.1.0'
+  s.add_development_dependency 'rake', '~> 10.3.2'
+  s.add_development_dependency 'wrong', '~> 0.7.1'
 end
