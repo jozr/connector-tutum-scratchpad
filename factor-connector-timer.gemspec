@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.email         = ['jozwright@gmail.com']
   s.homepage      = 'https://factor.io'
   s.summary       = 'Tutum Factor.io Connector'
-  s.files         = ['lib/factor/connector/tutum.rb']
+  s.files         = ['lib/factor/connector/*.rb']
 
   s.require_paths = ['lib']
 
