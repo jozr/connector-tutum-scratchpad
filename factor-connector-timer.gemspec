@@ -9,12 +9,12 @@ Gem::Specification.new do |s|
   s.email         = ['jozwright@gmail.com']
   s.homepage      = 'https://factor.io'
   s.summary       = 'Tutum Factor.io Connector'
-  s.files         = ['lib/factor/connector/tutum.rb']
+  s.files         = Dir.glob('lib/factor/connector/*.rb')
 
   s.require_paths = ['lib']
 
   s.add_runtime_dependency 'factor-connector-api', '~> 0.0.3'
-  s.add_runtime_dependency 'tutum', '~> 0.1.1'
+  s.add_runtime_dependency 'rest-client', '~> 1.7.2'
 
   s.add_development_dependency 'codeclimate-test-reporter', '~> 0.4.1'
   s.add_development_dependency 'rspec', '~> 3.1.0'
