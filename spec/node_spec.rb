@@ -20,14 +20,12 @@ describe 'Tutum' do
 
     it "can retrieve a node's information" do
 
-      UUID = '3f5f2bf1-704a-4ba1-921d-43be01bc0b55'
-
       service_instance = service_instance('tutum_node')
 
       params = {
         'username' => @username,
         'api_key' => @api_key,
-        'UUID' => UUID
+        'node_id' => @node_id
       }
 
       service_instance.test_action('retrieve', params) do

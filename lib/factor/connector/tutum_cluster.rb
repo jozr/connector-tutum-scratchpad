@@ -31,11 +31,11 @@ Factor::Connector.service 'tutum_cluster' do
 
     username       = params['username']
     api_key        = params['api_key']
-    UUID           = params['UUID']
+    UUID           = params['cluster_id']
 
     fail 'A username is required' unless username
     fail 'An API key (api_key) is required' unless api_key
-    fail 'A cluster ID (UUID) is required' unless UUID
+    fail 'A cluster ID (cluster_id) is required' unless UUID
 
     info 'Initializing connection to Tutum'
     begin

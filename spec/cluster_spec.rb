@@ -20,13 +20,12 @@ describe 'Tutum' do
 
     it "can retrieve a cluster's information" do
 
-      UUID = '7a1138f6-75fd-499d-8029-ff407eec4c61'
       service_instance = service_instance('tutum_cluster')
 
       params = {
         'username' => @username,
         'api_key' => @api_key,
-        'UUID' => UUID
+        'cluster_id' => @cluster_id
       }
 
       service_instance.test_action('retrieve', params) do
