@@ -28,7 +28,7 @@ describe 'Tutum' do
         'node_id' => @node_id
       }
 
-      service_instance.test_action('retrieve', params) do
+      service_instance.test_action('get', params) do
         expect_info message: 'Initializing connection to Tutum'
         expect_info message: 'Parsing node information'
         expect_return

@@ -28,7 +28,7 @@ describe 'Tutum' do
         'cluster_id' => @cluster_id
       }
 
-      service_instance.test_action('retrieve', params) do
+      service_instance.test_action('get', params) do
         expect_info message: 'Initializing connection to Tutum'
         expect_info message: 'Parsing cluster response'
         expect_return

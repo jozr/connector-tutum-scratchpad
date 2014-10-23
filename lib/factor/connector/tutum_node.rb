@@ -27,7 +27,7 @@ Factor::Connector.service 'tutum_node' do
     action_callback contents
   end
 
-  action 'retrieve' do |params|
+  action 'get' do |params|
 
     username       = params['username']
     api_key        = params['api_key']
