@@ -13,7 +13,8 @@ Factor::Connector.service 'tutum_container' do
     info 'Initializing connection to Tutum'
     begin
       headers = {
-        'Authorization'=>"ApiKey #{username}:#{api_key}"
+        "Authorization"=>"ApiKey #{username}:#{api_key}",
+        "Accept" => "application/json"
       }
       container_url = 'https://dashboard.tutum.co/api/v1/container'
       response      = RestClient.get(container_url,headers)
