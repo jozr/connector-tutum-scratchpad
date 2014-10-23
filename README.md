@@ -11,4 +11,4 @@ This gem provides Tutum actions through your Factor.io workflow. It was built wi
 
 #Authentication
 
-You username and [API key](https://dashboard.tutum.co/account/) is required for use.
+In order to make requests, you must obtain your [API key](https://dashboard.tutum.co/account/). Log into Tutum, click on the menu on the upper right corner of the page and click `Account info`. You should then see the `Api Key` selection.
