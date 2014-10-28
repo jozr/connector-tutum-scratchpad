@@ -17,5 +17,28 @@ describe 'Tutum' do
         expect_return
       end
     end
+
+    it 'can create a service' do
+
+      image                 = 'tutum/TEST'
+      name                  = 'TEST'
+      target_num_containers = 1
+
+      service_instance = service_instance('tutum_service')
+
+      params = {
+        'username' => @username,
+        'api_key' => @api_key,
+        'image' => image,
+        'name' => name,
+        'target_num_containers' => target_num_containers
+      }
+
+      service_instance.test_action('create', params) do
+        expect_info message: 'Initializing connection to Tutum'
+        expect_info message: 'Parsing creation response'
+        expect_return
+      end
+    end 
   end
 end
