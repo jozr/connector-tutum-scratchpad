@@ -1,5 +1,6 @@
 require 'factor-connector-api'
-require 'rest-client'
+require 'tutum'
+require 'json'
 
 Factor::Connector.service 'tutum_container' do
   action 'list' do |params|
@@ -12,18 +13,14 @@ Factor::Connector.service 'tutum_container' do
 
     info 'Initializing connection to Tutum'
     begin
-      headers = {
-        "Authorization"=>"ApiKey #{username}:#{api_key}",
-        "Accept" => "application/json"
-      }
-      container_url = 'https://dashboard.tutum.co/api/v1/container'
-      response      = RestClient.get(container_url,headers)
+      session = Tutum.new(username, api_key)
+      response = session.containers.list
       info 'Parsing list response'
-      contents      = JSON.parse(response)
+      content = JSON.parse(response)
     rescue
       fail 'Failed to list containers'
     end
 
-    action_callback contents
+    action_callback content
   end
 end
