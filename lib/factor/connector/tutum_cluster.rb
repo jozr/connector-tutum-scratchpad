@@ -1,5 +1,6 @@
 require 'factor-connector-api'
-require 'rest-client'
+require 'tutum'
+require 'json'
 
 Factor::Connector.service 'tutum_cluster' do
   action 'list' do |params|
@@ -12,14 +13,10 @@ Factor::Connector.service 'tutum_cluster' do
 
     info 'Initializing connection to Tutum'
     begin
-      headers = {
-        "Authorization"=>"ApiKey #{username}:#{api_key}",
-        "Accept" => "application/json"
-      }
-      application_url = 'https://dashboard.tutum.co/api/v1/nodecluster'
-      response        = RestClient.get(application_url,headers)
+      session = Tutum.new(username, api_key)
+      response = session.node_clusters.list
       info 'Parsing list response'
-      contents        = JSON.parse(response)
+      contents = JSON.parse(response)
     rescue
       fail 'Failed to list clusters'
     end
@@ -39,14 +36,10 @@ Factor::Connector.service 'tutum_cluster' do
 
     info 'Initializing connection to Tutum'
     begin
-      headers = {
-        "Authorization"=>"ApiKey #{username}:#{api_key}",
-        "Accept" => "application/json"
-      }
-      application_url = "https://dashboard.tutum.co/api/v1/nodecluster/#{UUID}"
-      response        = RestClient.get(application_url,headers)
+      session = Tutum.new(username, api_key)
+      response = session.node_clusters.get(UUID)
       info 'Parsing cluster response'
-      contents        = JSON.parse(response)
+      contents = JSON.parse(response)
     rescue
       fail 'Failed to retrieve cluster'
     end
