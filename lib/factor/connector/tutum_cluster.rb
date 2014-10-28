@@ -1,6 +1,5 @@
 require 'factor-connector-api'
 require 'tutum'
-require 'json'
 
 Factor::Connector.service 'tutum_cluster' do
   action 'list' do |params|

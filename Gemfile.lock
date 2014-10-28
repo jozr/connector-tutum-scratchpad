@@ -3,7 +3,6 @@ PATH
   specs:
     factor-connector-tutum (0.0.1)
       factor-connector-api (~> 0.0.3)
-      rest-client (~> 1.7.2)
       tutum-api (~> 0.0.0)
 
 GEM
