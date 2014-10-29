@@ -11,9 +11,11 @@ RSpec.configure do |c|
   c.include Factor::Connector::Test
 
   c.before do
-    @node_id = ENV['TUTUM_NODE_ID']
-    @cluster_id = ENV['TUTUM_CLUSTER_ID']
     @username = ENV['TUTUM_USERNAME']
     @api_key = ENV['TUTUM_API_KEY']
+
+    @node_id = ENV['TUTUM_NODE_ID']
+    @cluster_id = ENV['TUTUM_CLUSTER_ID']
+    @service_id = ENV['TUTUM_SERVICE_ID']
   end
 end
