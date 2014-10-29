@@ -45,4 +45,27 @@ Factor::Connector.service 'tutum_service' do
 
     action_callback content
   end
+
+  action 'start' do |params|
+
+    username       = params['username']
+    api_key        = params['api_key']
+    uuid           = params['service_id']
+
+    fail 'A username is required' unless username
+    fail 'An API key (api_key) is required' unless api_key
+    fail 'A service UUID (service_id) is required' unless uuid
+
+    info 'Initializing connection to Tutum'
+    begin
+      session = Tutum.new(username, api_key)
+      response = session.services.start(uuid)
+      info 'Parsing commencement response'
+      content = JSON.parse(response)
+    rescue
+      fail "Failed to retreive the service's information"
+    end
+
+    action_callback content
+  end
 end
