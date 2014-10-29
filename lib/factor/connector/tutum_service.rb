@@ -27,16 +27,16 @@ Factor::Connector.service 'tutum_service' do
 
     username       = params['username']
     api_key        = params['api_key']
-    UUID           = params['service_id']
+    uuid           = params['service_id']
 
     fail 'A username is required' unless username
     fail 'An API key (api_key) is required' unless api_key
-    fail 'A service UUID (service_id) is required' unless UUID
+    fail 'A service UUID (service_id) is required' unless uuid
 
     info 'Initializing connection to Tutum'
     begin
       session = Tutum.new(username, api_key)
-      response = session.services.get(UUID)
+      response = session.services.get(uuid)
       info 'Parsing service response'
       content = JSON.parse(response)
     rescue

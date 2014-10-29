@@ -27,16 +27,16 @@ Factor::Connector.service 'tutum_node' do
 
     username       = params['username']
     api_key        = params['api_key']
-    UUID           = params['node_id']
+    uuid           = params['node_id']
 
     fail 'A username is required' unless username
     fail 'An API key (api_key) is required' unless api_key
-    fail 'A node ID (node_id) is required' unless UUID
+    fail 'A node UUID (node_id) is required' unless uuid
 
     info 'Initializing connection to Tutum'
     begin
       session = Tutum.new(username, api_key)
-      response = session.nodes.get(UUID)
+      response = session.nodes.get(uuid)
       info 'Parsing node information'
       content = JSON.parse(response)
     rescue

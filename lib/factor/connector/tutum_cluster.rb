@@ -27,16 +27,16 @@ Factor::Connector.service 'tutum_cluster' do
 
     username = params['username']
     api_key  = params['api_key']
-    UUID     = params['cluster_id']
+    uuid     = params['cluster_id']
 
     fail 'A username is required' unless username
     fail 'An API key (api_key) is required' unless api_key
-    fail 'A cluster ID (cluster_id) is required' unless UUID
+    fail 'A cluster UUID (cluster_id) is required' unless uuid
 
     info 'Initializing connection to Tutum'
     begin
       session = Tutum.new(username, api_key)
-      response = session.node_clusters.get(UUID)
+      response = session.node_clusters.get(uuid)
       info 'Parsing cluster response'
       content = JSON.parse(response)
     rescue
