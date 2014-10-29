@@ -3,7 +3,7 @@ PATH
   specs:
     factor-connector-tutum (0.0.1)
       factor-connector-api (~> 0.0.3)
-      rest-client (~> 1.7.2)
+      tutum-api (~> 0.0.1)
 
 GEM
   remote: https://rubygems.org/
@@ -17,6 +17,7 @@ GEM
     factor-connector-api (0.0.13)
       celluloid (~> 0.16.0)
     hitimes (1.2.2)
+    json (1.8.1)
     mime-types (2.4.3)
     multi_json (1.10.1)
     netrc (0.8.0)
@@ -50,6 +51,9 @@ GEM
     simplecov-html (0.8.0)
     timers (4.0.1)
       hitimes
+    tutum-api (0.0.1)
+      json (~> 1.8.1)
+      rest-client (~> 1.7.2)
     wrong (0.7.1)
       diff-lcs (~> 1.2.5)
       predicated (~> 0.2.6)
