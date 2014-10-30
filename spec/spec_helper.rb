@@ -18,4 +18,9 @@ RSpec.configure do |c|
     @container_id = ENV['TUTUM_CONTAINER_ID']
     @service_id   = ENV['TUTUM_SERVICE_ID']
   end
+
+  c.after do
+
+
+  end
 end
