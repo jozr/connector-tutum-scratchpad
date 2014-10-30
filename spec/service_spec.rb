@@ -35,6 +35,24 @@ describe 'Tutum' do
       end
     end
 
+    it 'can get the logs of a service' do
+
+      service_instance = service_instance('tutum_service')
+
+      params = {
+        'username' => @username,
+        'api_key' => @api_key,
+        'service_id' => @service_id
+      }
+
+      service_instance.test_action('logs', params) do
+        expect_info message: 'Initializing connection to Tutum'
+        expect_info message: 'Parsing service response'
+        expect_return
+      end
+
+    end
+
     it 'can start a service' do
 
       service_instance = service_instance('tutum_service')

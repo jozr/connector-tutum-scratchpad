@@ -28,10 +28,5 @@ RSpec.configure do |c|
 				session.node_clusters.terminate(cluster['uuid'])
 			end
 		end
-		service_response = session.services.get(@service_id)
-		service = JSON.parse(service_response)
-		unless service['state'] == 'Stopped'
-			session.services.stop(@service_id)
-		end
 	end
 end
