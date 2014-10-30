@@ -50,7 +50,6 @@ describe 'Tutum' do
         expect_info message: 'Parsing service response'
         expect_return
       end
-
     end
 
     it 'can start a service' do
