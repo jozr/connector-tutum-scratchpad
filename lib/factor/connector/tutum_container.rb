@@ -13,14 +13,13 @@ Factor::Connector.service 'tutum_container' do
     info 'Initializing connection to Tutum'
     begin
       session = Tutum.new(username, api_key)
+      info 'Requesting list of containers'
       response = session.containers.list
-      info 'Parsing list response'
-      content = JSON.parse(response)
     rescue
       fail 'Failed to list containers'
     end
 
-    action_callback content
+    action_callback response
   end
 
   action 'get' do |params|
@@ -36,13 +35,12 @@ Factor::Connector.service 'tutum_container' do
     info 'Initializing connection to Tutum'
     begin
       session = Tutum.new(username, api_key)
+      info 'Requesting container information'
       response = session.containers.get(uuid)
-      info 'Parsing container response'
-      content = JSON.parse(response)
     rescue
       fail "Failed to retrieve the container's information"
     end
 
-    action_callback content
+    action_callback response
   end
 end

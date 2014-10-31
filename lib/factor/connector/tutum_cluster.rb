@@ -13,14 +13,13 @@ Factor::Connector.service 'tutum_cluster' do
     info 'Initializing connection to Tutum'
     begin
       session = Tutum.new(username, api_key)
+      info 'Requesting list of clusters'
       response = session.node_clusters.list
-      info 'Parsing list response'
-      content = JSON.parse(response)
     rescue
       fail 'Failed to list clusters'
     end
 
-    action_callback content
+    action_callback response
   end
 
   action 'get' do |params|
@@ -36,14 +35,13 @@ Factor::Connector.service 'tutum_cluster' do
     info 'Initializing connection to Tutum'
     begin
       session = Tutum.new(username, api_key)
+      info 'Requesting cluster information'
       response = session.node_clusters.get(uuid)
-      info 'Parsing cluster response'
-      content = JSON.parse(response)
     rescue
       fail 'Failed to retrieve cluster'
     end
 
-    action_callback content
+    action_callback response
   end
 
   action 'create' do |params|
@@ -72,14 +70,13 @@ Factor::Connector.service 'tutum_cluster' do
     info 'Initializing connection to Tutum'
     begin
       session = Tutum.new(username, api_key)
+      info 'Requesting creation of cluster'
       response = session.node_clusters.create(params)
-      info 'Parsing creation response'
-      content = JSON.parse(response)
     rescue
       fail 'Failed to create cluster'
     end
 
-    action_callback content
+    action_callback response
   end
 end
 

@@ -13,7 +13,7 @@ describe 'Tutum' do
 
       service_instance.test_action('list', params) do
         expect_info message: 'Initializing connection to Tutum'
-        expect_info message: 'Parsing list response'
+        expect_info message: 'Requesting list of clusters'
         expect_return
       end
     end
@@ -30,7 +30,7 @@ describe 'Tutum' do
 
       service_instance.test_action('get', params) do
         expect_info message: 'Initializing connection to Tutum'
-        expect_info message: 'Parsing cluster response'
+        expect_info message: 'Requesting cluster information'
         expect_return
       end
     end
@@ -55,7 +55,7 @@ describe 'Tutum' do
 
       service_instance.test_action('create', params) do
         expect_info message: 'Initializing connection to Tutum'
-        expect_info message: 'Parsing creation response'
+        expect_info message: 'Requesting creation of cluster'
         expect_return
       end
     end

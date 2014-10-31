@@ -13,14 +13,13 @@ Factor::Connector.service 'tutum_node' do
     info 'Initializing connection to Tutum'
     begin
       session = Tutum.new(username, api_key)
+      info 'Requesting list of nodes'
       response = session.nodes.list
-      info 'Parsing list response'
-      content = JSON.parse(response)
     rescue
       fail 'Failed to list nodes'
     end
 
-    action_callback content
+    action_callback response
   end
 
   action 'get' do |params|
@@ -36,13 +35,12 @@ Factor::Connector.service 'tutum_node' do
     info 'Initializing connection to Tutum'
     begin
       session = Tutum.new(username, api_key)
+      info 'Requesting node information'
       response = session.nodes.get(uuid)
-      info 'Parsing node information'
-      content = JSON.parse(response)
     rescue
       fail 'Failed to list nodes'
     end
 
-    action_callback content
+    action_callback response
   end
 end

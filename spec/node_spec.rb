@@ -13,7 +13,7 @@ describe 'Tutum' do
 
       service_instance.test_action('list', params) do
         expect_info message: 'Initializing connection to Tutum'
-        expect_info message: 'Parsing list response'
+        expect_info message: 'Requesting list of nodes'
         expect_return
       end
     end
@@ -30,7 +30,7 @@ describe 'Tutum' do
 
       service_instance.test_action('get', params) do
         expect_info message: 'Initializing connection to Tutum'
-        expect_info message: 'Parsing node information'
+        expect_info message: 'Requesting node information'
         expect_return
       end
     end
