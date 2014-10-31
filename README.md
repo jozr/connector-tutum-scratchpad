@@ -1,4 +1,3 @@
-[![Code Climate](https://codeclimate.com/github/factor-io/connector-tutum/badges/gpa.svg)](https://codeclimate.com/github/factor-io/connector-tutum)
 [![Test Coverage](https://codeclimate.com/github/factor-io/connector-tutum/badges/coverage.svg)](https://codeclimate.com/github/factor-io/connector-tutum)
 [![Dependency Status](https://gemnasium.com/factor-io/connector-tutum.svg)](https://gemnasium.com/factor-io/connector-tutum)
 [![Build Status](https://travis-ci.org/factor-io/connector-tutum.svg?branch=rework)](https://travis-ci.org/factor-io/connector-tutum)
