@@ -37,9 +37,9 @@ c.include Factor::Connector::Test
         counter += 1
       elsif service['state'] == 'Running' || service['state'] == 'Partly running'
         session.services.stop(@service_id)
-      break
+        break
       else
-      break
+        break
       end
     end
   end
