@@ -15,19 +15,35 @@ In order to make requests, you must obtain your [API key](https://dashboard.tutu
 #Functionality
 
 ###Services
-• list all services
-• get a service's details
-• get a service's logs
+• list all services<br />
+• get a service's details<br />
+• get a service's logs<br />
 
 ###Containers
-• list all containers
-• get a container's details
+• list all containers<br />
+• get a container's details<br />
 
 ###Node Clusters
-• list all clusters
-• get a cluster's details
-• create a cluster
+• list all clusters<br />
+• get a cluster's details<br />
+• create a cluster<br />
 
 ###Nodes
-• list all nodes
-• get a node's details
+• list all nodes<br />
+• get a node's details<br />
+
+#Testing
+
+Using your terminal to test locally, you must set up two environmental variables.
+	
+	$ export TUTUM_USERNAME=your_username
+	$ export TUTUM_API_KEY=123456789abcdef
+
+Then, you can bundle and run the tests.
+
+	$ bundle
+	$ rake
+
+#Contributing
+
+Documentation, feature requests, code, tests, and bug reports are welcomed. Click [here](https://github.com/factor-io/factor/wiki/Contribution) for more information.
