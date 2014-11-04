@@ -11,3 +11,23 @@ This gem provides Tutum actions through your Factor.io workflow. It was built wi
 #Authentication
 
 In order to make requests, you must obtain your [API key](https://dashboard.tutum.co/account/). Log into Tutum, click on the menu on the upper right corner of the page and click `Account info`. You should then see the `Api Key` selection.
+
+#Functionality
+
+###Services
+• list all services
+• get a service's details
+• get a service's logs
+
+###Containers
+• list all containers
+• get a container's details
+
+###Node Clusters
+• list all clusters
+• get a cluster's details
+• create a cluster
+
+###Nodes
+• list all nodes
+• get a node's details
