@@ -36,13 +36,12 @@ In order to make requests, you must obtain your [API key](https://dashboard.tutu
 
 Using your terminal to test locally, you must set up two environmental variables.
 	
-	$ export TUTUM_USERNAME=your_username
-	$ export TUTUM_API_KEY=123456789abcdef
+	$ export TUTUM_USERNAME=<username>
+	$ export TUTUM_API_KEY=<api_key>
 
 Then, you can bundle and run the tests.
 
-	$ bundle
-	$ rake
+	$ bundle exec rake
 
 #Contributing
 
