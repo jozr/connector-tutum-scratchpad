@@ -12,7 +12,7 @@ This gem provides Tutum actions through your Factor.io workflow. It was built wi
 
 In order to make requests, you must obtain your [API key](https://dashboard.tutum.co/account/). Log into Tutum, click on the menu on the upper right corner of the page and click `Account info`. You should then see the `Api Key` selection.
 
-#Installation
+##Installation
 
 Add this to your `Gemfile` in your [Connector](https://github.com/factor-io/connector).
 
@@ -30,27 +30,31 @@ require 'factor/connector/tutum_node'
 ```
 The [Connectors README](https://github.com/factor-io/connector#running) shows you how to run the Connector Server with this new connector integrated.
 
-#Functionality
+##Configuration
 
-###Services
+**[Setup your workflows](https://github.com/factor-io/connector-rackspace/wiki/Setup-your-workflows)**: To use the connector in your workflow when you run `factor s` you must setup your `credentials.yml` and `connectors.yml` files.
+
+##Functionality
+
+####Services
 • list all services<br />
 • get a service's details<br />
 • get a service's logs<br />
 
-###Containers
+####Containers
 • list all containers<br />
 • get a container's details<br />
 
-###Node Clusters
+####Node Clusters
 • list all clusters<br />
 • get a cluster's details<br />
 • create a cluster<br />
 
-###Nodes
+####Nodes
 • list all nodes<br />
 • get a node's details<br />
 
-#Testing
+##Testing
 
 Using your terminal to test locally, you must set up two environmental variables.
 
@@ -65,6 +69,6 @@ Then, you can bundle and run the tests.
 $ bundle exec rake
 ```
 
-#Contributing
+##Contributing
 
 Documentation, feature requests, code, tests, and [bug reports](https://github.com/factor-io/connector-tutum/issues/new) are welcomed. Click [here](https://github.com/factor-io/factor/wiki/Contribution) for more information.
