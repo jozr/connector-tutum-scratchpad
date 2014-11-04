@@ -13,7 +13,6 @@ c.include Factor::Connector::Test
   c.before do
     @username     = ENV['TUTUM_USERNAME']
     @api_key      = ENV['TUTUM_API_KEY']
-    @node_id      = ENV['TUTUM_NODE_ID']
     @container_id = ENV['TUTUM_CONTAINER_ID']
     @service_id   = ENV['TUTUM_SERVICE_ID']
     @session      = Tutum.new(@username, @api_key)
@@ -24,7 +23,8 @@ c.include Factor::Connector::Test
       target_num_nodes: 1
     }
     cluster = @session.node_clusters.create(params)
-    @cluster_id = cluster['id']
+    @cluster_id = cluster['uuid']
+    @node_id    = cluster['nodes'].first.split('/').last
   end
 
   c.after do
