@@ -14,17 +14,24 @@ c.include Factor::Connector::Test
     @username     = ENV['TUTUM_USERNAME']
     @api_key      = ENV['TUTUM_API_KEY']
     @node_id      = ENV['TUTUM_NODE_ID']
-    @cluster_id   = ENV['TUTUM_CLUSTER_ID']
     @container_id = ENV['TUTUM_CONTAINER_ID']
     @service_id   = ENV['TUTUM_SERVICE_ID']
+    @session      = Tutum.new(@username, @api_key)
+    params = {
+      name: 'TEST49',
+      node_type: '/api/v1/nodetype/digitalocean/512mb/',
+      region: '/api/v1/region/digitalocean/lon1/',
+      target_num_nodes: 1
+    }
+    cluster = @session.node_clusters.create(params)
+    @cluster_id = cluster['id']
   end
 
   c.after do
-    session = Tutum.new(@username, @api_key)
-    response = session.node_clusters.list
+    response = @session.node_clusters.list
     response['objects'].each do |cluster|
       if cluster['name'] == 'TEST49' && cluster['state'] != 'Terminated'
-        session.node_clusters.terminate(cluster['uuid'])
+        @session.node_clusters.terminate(cluster['uuid'])
       end
     end
   end
