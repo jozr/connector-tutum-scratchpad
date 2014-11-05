@@ -32,7 +32,7 @@ The [Connectors README](https://github.com/factor-io/connector#running) shows yo
 
 ##Configuration
 
-**[Setup your workflows](https://github.com/factor-io/connector-rackspace/wiki/Setup-your-workflows)**: To use the connector in your workflow when you run `factor s` you must setup your `credentials.yml` and `connectors.yml` files.
+**[Setup your workflow](https://github.com/factor-io/connector-tutum/wiki/Workflow-Setup)**: To use the connector in your workflow when you run `factor s` you must setup your `credentials.yml` and `connectors.yml` files.
 
 ##Functionality
 
