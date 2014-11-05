@@ -36,23 +36,9 @@ The [Connectors README](https://github.com/factor-io/connector#running) shows yo
 
 ##Functionality
 
-####Services
-• list all services<br />
-• get a service's details<br />
-• get a service's logs<br />
+[example]
 
-####Containers
-• list all containers<br />
-• get a container's details<br />
-
-####Node Clusters
-• list all clusters<br />
-• get a cluster's details<br />
-• create a cluster<br />
-
-####Nodes
-• list all nodes<br />
-• get a node's details<br />
+Further exmaples are provided at the **[Actions and Listeners](https://github.com/factor-io/connector-tutum/wiki/Actions-and-Listeners)** wiki.
 
 ##Testing
 
