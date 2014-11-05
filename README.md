@@ -10,7 +10,7 @@ This gem provides Tutum actions through your Factor.io workflow. It was built wi
 
 #Authentication
 
-In order to make requests, you must obtain your [API key](https://dashboard.tutum.co/account/). Log into Tutum, click on the menu on the upper right corner of the page and click `Account info`. You should then see the `Api Key` selection.
+In order to make requests, you must obtain your [API key](https://dashboard.tutum.co/account/). Log onto Tutum, click on the menu on the upper right corner of the page and click `Account info`. You should then see the `Api Key` selection.
 
 ##Installation
 
@@ -58,7 +58,7 @@ The [Connectors README](https://github.com/factor-io/connector#running) shows yo
 
 Using your terminal to test locally, you must set up two environmental variables.
 
-```shell	
+```shell
 $ export TUTUM_USERNAME=<username>
 $ export TUTUM_API_KEY=<api_key>
 ```
