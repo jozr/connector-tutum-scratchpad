@@ -38,7 +38,7 @@ The [Connectors README](https://github.com/factor-io/connector#running) shows yo
 
 [example]
 
-Further exmaples are provided at the **[Actions and Listeners](https://github.com/factor-io/connector-tutum/wiki/Actions-and-Listeners)** wiki.
+Further examples are provided in the **[Actions and Listeners](https://github.com/factor-io/connector-tutum/wiki/Actions-and-Listeners)** wiki.
 
 ##Testing
 
