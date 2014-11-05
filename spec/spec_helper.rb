@@ -13,7 +13,6 @@ c.include Factor::Connector::Test
   c.before do
     @username     = ENV['TUTUM_USERNAME']
     @api_key      = ENV['TUTUM_API_KEY']
-    @container_id = ENV['TUTUM_CONTAINER_ID']
     @service_id   = ENV['TUTUM_SERVICE_ID']
     @session      = Tutum.new(@username, @api_key)
     params = {
@@ -22,9 +21,11 @@ c.include Factor::Connector::Test
       region: '/api/v1/region/digitalocean/lon1/',
       target_num_nodes: 1
     }
-    cluster = @session.node_clusters.create(params)
-    @cluster_id = cluster['uuid']
-    @node_id    = cluster['nodes'].first.split('/').last
+    cluster       = @session.node_clusters.create(params)
+    @cluster_id   = cluster['uuid']
+    @node_id      = cluster['nodes'].first.split('/').last
+    service       = @session.services.get(@service_id)
+    @container_id = service['containers'].first.split('/').last
   end
 
   c.after do
