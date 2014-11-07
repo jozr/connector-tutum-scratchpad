@@ -73,5 +73,24 @@ describe 'Tutum' do
         expect_return
       end
     end
+
+    it 'can terminate a service' do
+
+      service_id = @service_id_two
+      
+      service_instance = service_instance('tutum_service')
+
+      params = {
+        'username' => @username,
+        'api_key' => @api_key,
+        'service_id' => service_id
+      }
+
+      service_instance.test_action('terminate', params) do
+        expect_info message: 'Initializing connection to Tutum'
+        expect_info message: 'Terminating service'
+        expect_return
+      end
+    end
   end
 end

@@ -119,4 +119,26 @@ Factor::Connector.service 'tutum_service' do
 
     action_callback response
   end
+
+  action 'terminate' do |params|
+
+    username = params['username']
+    api_key  = params['api_key']
+    uuid     = params['service_id']
+
+    fail 'A username is required' unless username
+    fail 'An API key (api_key) is required' unless api_key
+    fail 'A service UUID (service_id) is required' unless uuid
+
+    info 'Initializing connection to Tutum'
+    begin
+      session = Tutum.new(username, api_key)
+      info 'Terminating service'
+      response = session.services.terminate(uuid)
+    rescue
+      fail "Failed to terminate the service"
+    end
+
+    action_callback response
+  end
 end
