@@ -54,8 +54,8 @@ describe 'Tutum' do
 
     it 'can create a new service' do
 
-      name             = 'TEST47'
-      target_num_nodes = 1
+      name                  = 'TEST47'
+      target_num_containers = 1
       
       service_instance = service_instance('tutum_service')
 
@@ -64,7 +64,7 @@ describe 'Tutum' do
         'api_key' => @api_key,
         'image_url' => @image_url,
         'name' => name,
-        'target_num_nodes' => target_num_nodes
+        'target_num_containers' => target_num_containers
       }
 
       service_instance.test_action('create', params) do

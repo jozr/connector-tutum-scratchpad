@@ -90,22 +90,22 @@ Factor::Connector.service 'tutum_service' do
 
   action 'create' do |params|
 
-    username         = params['username']
-    api_key          = params['api_key']
-    image_url        = params['image_url']
-    name             = params['name']
-    target_num_nodes = params['target_num_nodes']
+    username              = params['username']
+    api_key               = params['api_key']
+    image_url             = params['image_url']
+    name                  = params['name']
+    target_num_containers = params['target_num_containers']
 
     fail 'A username is required' unless username
     fail 'An API key (api_key) is required' unless api_key
     fail 'A image location (image_url) is required' unless image_url
     name ||= 'Foo'
-    target_num_nodes ||= 1
+    target_num_containers ||= 1
 
     params = {
       image: image_url,
       name: name,
-      target_num_nodes: target_num_nodes
+      target_num_containers: target_num_containers
     }
 
     info 'Initializing connection to Tutum'
@@ -137,6 +137,32 @@ Factor::Connector.service 'tutum_service' do
       response = session.services.terminate(uuid)
     rescue
       fail "Failed to terminate the service"
+    end
+
+    action_callback response
+  end
+
+  action 'update' do |params|
+
+    username              = params['username']
+    api_key               = params['api_key']
+    uuid                  = params['service_id']
+    target_num_containers = params['target_num_containers']
+
+    fail 'A username is required' unless username
+    fail 'An API key (api_key) is required' unless api_key
+    fail 'A service UUID (service_id) is required' unless uuid
+    fail 'The desired number of containers (target_num_containers) is required' unless target_num_containers
+
+    params = { target_num_containers: target_num_containers }
+
+    info 'Initializing connection to Tutum'
+    begin
+      session = Tutum.new(username, api_key)
+      info 'Updating service'
+      response = session.services.update(uuid, params)
+    rescue
+      fail "Failed to update the service"
     end
 
     action_callback response

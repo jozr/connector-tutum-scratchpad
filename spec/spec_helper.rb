@@ -30,14 +30,14 @@ c.include Factor::Connector::Test
       target_num_containers: 1
     }
 
-    cluster     = @session.node_clusters.create(cluster_params)
-    service     = @session.services.create(service_params)
-    service_two = @session.services.create(service_params)
+    cluster       = @session.node_clusters.create(cluster_params)
+    service       = @session.services.create(service_params)
+    service_two   = @session.services.create(service_params)
 
-    @cluster_id     = cluster['uuid']
-    @service_id     = service['uuid']
-    @service_id_two = service_two['uuid']
-    @node_id        = cluster['nodes'].first.split('/').last
+    @cluster_id       = cluster['uuid']
+    @service_id       = service['uuid']
+    @service_id_two   = service_two['uuid']
+    @node_id          = cluster['nodes'].first.split('/').last
   end
 
   c.after do
