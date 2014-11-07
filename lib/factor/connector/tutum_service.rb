@@ -170,9 +170,9 @@ Factor::Connector.service 'tutum_service' do
 
   action 'start' do |params|
 
-    username              = params['username']
-    api_key               = params['api_key']
-    uuid                  = params['service_id']
+    username = params['username']
+    api_key  = params['api_key']
+    uuid     = params['service_id']
 
     fail 'A username is required' unless username
     fail 'An API key (api_key) is required' unless api_key
@@ -185,6 +185,28 @@ Factor::Connector.service 'tutum_service' do
       response = session.services.start(uuid)
     rescue
       fail "Failed to start the service"
+    end
+
+    action_callback response
+  end
+
+  action 'stop' do |params|
+
+    username = params['username']
+    api_key  = params['api_key']
+    uuid     = params['service_id']
+
+    fail 'A username is required' unless username
+    fail 'An API key (api_key) is required' unless api_key
+    fail 'A service UUID (service_id) is required' unless uuid
+
+    info 'Initializing connection to Tutum'
+    begin
+      session = Tutum.new(username, api_key)
+      info 'Updating service'
+      response = session.services.stop(uuid)
+    rescue
+      fail "Failed to stop the service"
     end
 
     action_callback response
