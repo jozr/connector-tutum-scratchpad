@@ -30,21 +30,24 @@ c.include Factor::Connector::Test
       target_num_containers: 1
     }
 
-    cluster       = @session.node_clusters.create(cluster_params)
-    service       = @session.services.create(service_params)
+    cluster = @session.node_clusters.create(cluster_params)
+    service = @session.services.create(service_params)
 
-    @cluster_id   = cluster['uuid']
-    @service_id   = service['uuid']
-    @node_id      = cluster['nodes'].first.split('/').last
+    @cluster_id = cluster['uuid']
+    @service_id = service['uuid']
+    @node_id    = cluster['nodes'].first.split('/').last
   end
 
   c.after do
+    @session.services.terminate(@service_id)
+
     services_response = @session.services.list
     services_response['objects'].each do |service|
-      if service['name'] == 'TEST48' && service['state'] != 'Terminated'
+      if service['name'] == 'TEST47' && service['state'] != 'Terminated'
         @session.services.terminate(service['uuid'])
       end
     end
+    
     clusters_response = @session.node_clusters.list
     clusters_response['objects'].each do |cluster|
       if cluster['name'] == 'TEST49' && cluster['state'] != 'Terminated'
