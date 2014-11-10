@@ -51,5 +51,46 @@ describe 'Tutum' do
         expect_return
       end
     end
+
+    it 'can create a new service' do
+
+      name                  = 'TEST47'
+      target_num_containers = 1
+      
+      service_instance = service_instance('tutum_service')
+
+      params = {
+        'username' => @username,
+        'api_key' => @api_key,
+        'image_url' => @image_url,
+        'name' => name,
+        'target_num_containers' => target_num_containers
+      }
+
+      service_instance.test_action('create', params) do
+        expect_info message: 'Initializing connection to Tutum'
+        expect_info message: 'Creating service'
+        expect_return
+      end
+    end
+
+    it 'can terminate a service' do
+
+      service_id = @service_id_two
+      
+      service_instance = service_instance('tutum_service')
+
+      params = {
+        'username' => @username,
+        'api_key' => @api_key,
+        'service_id' => service_id
+      }
+
+      service_instance.test_action('terminate', params) do
+        expect_info message: 'Initializing connection to Tutum'
+        expect_info message: 'Terminating service'
+        expect_return
+      end
+    end
   end
 end
