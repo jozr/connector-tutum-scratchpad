@@ -37,7 +37,7 @@ describe 'Tutum' do
 
     it 'can create a cluster' do
 
-      name             = 'TEST'
+      name             = 'TEST49'
       node_type        = '/api/v1/nodetype/digitalocean/512mb/'
       region           = '/api/v1/region/digitalocean/lon1/'
       target_num_nodes = 1
