@@ -54,7 +54,7 @@ describe 'Tutum' do
 
     it 'can create a new service' do
 
-      name                  = 'TEST47'
+      name                  = @name
       target_num_containers = 1
       
       service_instance = service_instance('tutum_service')

@@ -2,6 +2,7 @@ require 'codeclimate-test-reporter'
 require 'rspec'
 require 'wrong'
 require 'factor-connector-api/test'
+require 'securerandom'
 
 CodeClimate::TestReporter.start if ENV['CODECLIMATE_REPO_TOKEN']
 
@@ -16,9 +17,10 @@ c.include Factor::Connector::Test
     @image_url    = ENV['TUTUM_IMAGE_URL'] 
     @container_id = ENV['TUTUM_CONTAINER_ID']  
     @session      = Tutum.new(@username, @api_key)
+    @name         = rand.to_s
 
     cluster_params = {
-      name: 'TEST49',
+      name: @name,
       node_type: '/api/v1/nodetype/digitalocean/512mb/',
       region: '/api/v1/region/digitalocean/lon1/',
       target_num_nodes: 1
@@ -26,7 +28,7 @@ c.include Factor::Connector::Test
 
     service_params = {
       image: @image_url,
-      name: 'TEST48',
+      name: @name,
       target_num_containers: 1
     }
 
@@ -45,14 +47,14 @@ c.include Factor::Connector::Test
 
     services_response = @session.services.list
     services_response['objects'].each do |service|
-      if service['name'] == 'TEST47' && service['state'] != 'Terminated'
+      if service['name'] == @name && service['state'] != 'Terminated'
         @session.services.terminate(service['uuid'])
       end
     end
 
     clusters_response = @session.node_clusters.list
     clusters_response['objects'].each do |cluster|
-      if cluster['name'] == 'TEST49' && cluster['state'] != 'Terminated'
+      if cluster['name'] == @name && cluster['state'] != 'Terminated'
         @session.node_clusters.terminate(cluster['uuid'])
       end
     end
