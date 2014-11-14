@@ -56,7 +56,7 @@ describe 'Tutum' do
 
       name                  = @name
       target_num_containers = 1
-      run_command           = "echo 'hello world'"
+      run_command           = @run_command
       
       service_instance = service_instance('tutum_service')
 
