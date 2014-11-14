@@ -95,6 +95,7 @@ Factor::Connector.service 'tutum_service' do
     image_url             = params['image_url']
     name                  = params['name']
     target_num_containers = params['target_num_containers']
+    run_command           = params['run_command']
 
     fail 'A username is required' unless username
     fail 'An API key (api_key) is required' unless api_key
@@ -105,7 +106,8 @@ Factor::Connector.service 'tutum_service' do
     params = {
       image: image_url,
       name: name,
-      target_num_containers: target_num_containers
+      target_num_containers: target_num_containers,
+      run_command: run_command
     }
 
     info 'Initializing connection to Tutum'
