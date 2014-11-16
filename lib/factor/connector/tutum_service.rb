@@ -93,15 +93,13 @@ Factor::Connector.service 'tutum_service' do
     username              = params['username']
     api_key               = params['api_key']
     image_url             = params['image_url']
-    name                  = params['name']
-    target_num_containers = params['target_num_containers']
-    run_command           = params['run_command']
+    name                  = params['name'] || 'Foo'
+    target_num_containers = params['target_num_containers'] || 1
+    run_command           = params['run_command'] || "echo 'hello world'"
 
     fail 'A username is required' unless username
     fail 'An API key (api_key) is required' unless api_key
     fail 'A image location (image_url) is required' unless image_url
-    name ||= 'Foo'
-    target_num_containers ||= 1
 
     params = {
       image: image_url,

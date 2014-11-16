@@ -51,14 +51,13 @@ Factor::Connector.service 'tutum_cluster' do
     name             = params['name']
     node_type        = params['node_type']
     region           = params['region']
-    target_num_nodes = params['target_num_nodes']
+    target_num_nodes = params['target_num_nodes'] || 1
 
     fail 'A username is required' unless username
     fail 'An API key (api_key) is required' unless api_key
     fail 'A cluster name is required' unless name
     fail 'A node type (node_type) is required' unless node_type
     fail 'A region is required' unless region
-    target_num_nodes ||= 1
 
     params = {
       name: name,
