@@ -1,7 +1,4 @@
-[![Test Coverage](https://codeclimate.com/github/factor-io/connector-tutum/badges/coverage.svg)](https://codeclimate.com/github/factor-io/connector-tutum)
-[![Dependency Status](https://gemnasium.com/factor-io/connector-tutum.svg)](https://gemnasium.com/factor-io/connector-tutum)
-[![Build Status](https://travis-ci.org/factor-io/connector-tutum.svg?branch=rework)](https://travis-ci.org/factor-io/connector-tutum)
-[![Gem Version](https://badge.fury.io/rb/factor-connector-tutum.svg)](http://badge.fury.io/rb/factor-connector-tutum)
+[![Build Status](https://travis-ci.org/jozw/connector-tutum-scratchpad.svg)](https://travis-ci.org/jozw/connector-tutum-scratchpad)
 
 Tutum Connector for Factor.io
 ======================
