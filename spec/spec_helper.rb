@@ -14,7 +14,6 @@ c.include Factor::Connector::Test
   c.before do
     @username     = ENV['TUTUM_USERNAME']
     @api_key      = ENV['TUTUM_API_KEY']
-    @container_id = ENV['TUTUM_CONTAINER_ID']
     @session      = Tutum.new(@username, @api_key)
     @name         = rand.to_s
     @image_url    = 'ubuntu'
@@ -34,7 +33,7 @@ c.include Factor::Connector::Test
 
     cluster       = @session.node_clusters.create(cluster_params)
     service       = @session.services.create(service_params)
-    service_two   = @session.services.create(service_params)
+    # service_two   = @session.services.create(service_params)
 
     @cluster_id       = cluster['uuid']
     @service_id       = service['uuid']
