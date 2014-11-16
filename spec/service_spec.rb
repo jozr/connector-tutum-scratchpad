@@ -56,8 +56,7 @@ describe 'Tutum' do
 
       name                  = @name
       target_num_containers = 1
-      run_command           = @run_command
-      
+
       service_instance = service_instance('tutum_service')
 
       params = {
@@ -66,7 +65,6 @@ describe 'Tutum' do
         'image_url' => @image_url,
         'name' => name,
         'target_num_containers' => target_num_containers,
-        'run_command' => run_command
       }
 
       service_instance.test_action('create', params) do
@@ -79,7 +77,7 @@ describe 'Tutum' do
     it 'can terminate a service' do
 
       service_id = @service_id_two
-      
+
       service_instance = service_instance('tutum_service')
 
       params = {

@@ -14,11 +14,10 @@ c.include Factor::Connector::Test
   c.before do
     @username     = ENV['TUTUM_USERNAME']
     @api_key      = ENV['TUTUM_API_KEY']
-    @image_url    = ENV['TUTUM_IMAGE_URL'] 
-    @container_id = ENV['TUTUM_CONTAINER_ID']  
+    @container_id = ENV['TUTUM_CONTAINER_ID']
     @session      = Tutum.new(@username, @api_key)
     @name         = rand.to_s
-    @run_command  = "echo 'hello world'"
+    @image_url    = 'ubuntu'
 
     cluster_params = {
       name: @name,
